@@ -7,7 +7,7 @@ const FavouriteMenu = ({ favourites, toggleMenu, handleDelete }) => {
     handleDelete(cocktail)
   }
   return (
-    <div className="absolute w-full top-16 z-10 flex items-center justify-center">
+    <div className="absolute w-96 top-16 z-10 flex items-center justify-center">
       <div className="bg-white p-5 rounded-md w-full border-[1px] shadow-sm">
         <h3 className="text-2xl font-bold">Your Favourites</h3>
         <div className="flex flex-col mt-3">

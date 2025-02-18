@@ -20,6 +20,7 @@ const CocktailCard = ({ cocktail, handleFavouriteClick, isFavourite }) => {
         width={240}
         height={240}
         className="rounded-lg"
+        priority
       />
       <div className="text-center font-semibold">{cocktail?.strDrink}</div>
     </div>

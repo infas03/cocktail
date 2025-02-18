@@ -11,13 +11,16 @@ export default function Home() {
 
   const {
     favourites,
+    searchResults,
+    isSearch,
     addToFavourites,
     removeFromFavourites,
     initialFavouritesState,
+    initialSearchState,
   } = useFavourites();
 
   const getCocktails = async () => {
-    try { 
+    try {
       setLoading(true);
       const cocktailList = await fetchMultipleRandomCocktails(5);
       setCocktails(cocktailList);
@@ -35,19 +38,24 @@ export default function Home() {
   const handleRefresh = () => {
     getCocktails();
     initialFavouritesState();
+    initialSearchState();
   };
 
-  const handleFavourite = useCallback((cocktail) => {
-    console.log("click: ", cocktail);
-    if (favourites.some((fav) => fav.idDrink === cocktail.idDrink)) {
-      removeFromFavourites(cocktail.idDrink);
-    } else {
-      addToFavourites(cocktail);
-    }
-  }, [favourites, addToFavourites, removeFromFavourites]);
+  const handleFavourite = useCallback(
+    (cocktail) => {
+      console.log("click: ", cocktail);
+      if (favourites.some((fav) => fav.idDrink === cocktail.idDrink)) {
+        removeFromFavourites(cocktail.idDrink);
+      } else {
+        addToFavourites(cocktail);
+      }
+    },
+    [favourites, addToFavourites, removeFromFavourites]
+  );
 
   console.log("cocktails: ", cocktails);
-  console.log("favourites: ", favourites);
+  console.log("searchResults: ", searchResults);
+  console.log("isSearch: ", isSearch);
 
   return (
     <div className={`flex flex-col`}>
@@ -65,19 +73,19 @@ export default function Home() {
       <div className="flex flex-wrap gap-10">
         {loading ? (
           <SkeletonHome />
+        ) : (isSearch ? searchResults : cocktails)?.length > 0 ? (
+          (isSearch ? searchResults : cocktails).map((cocktail) => (
+            <CocktailCard
+              key={cocktail.idDrink}
+              cocktail={cocktail}
+              handleFavouriteClick={handleFavourite}
+              isFavourite={favourites.some(
+                (fav) => fav.idDrink === cocktail.idDrink
+              )}
+            />
+          ))
         ) : (
-          cocktails?.map((cocktail, index) => {
-            return (
-              <CocktailCard
-                key={index}
-                cocktail={cocktail}
-                handleFavouriteClick={handleFavourite}
-                isFavourite={favourites.some(
-                  (fav) => fav.idDrink === cocktail.idDrink
-                )}
-              />
-            );
-          })
+          <div>No Data Found</div>
         )}
       </div>
     </div>

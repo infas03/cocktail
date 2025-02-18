@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const fetchRandomCocktail = async () => {
   try {
-    const response = await axios.get('/api/randomCocktail');
+    const response = await axios.get('/api/random-cocktail');
     return response.data;
   } catch (error) {
     console.error("Error fetching random cocktail:", error);
@@ -27,4 +27,22 @@ export const fetchMultipleRandomCocktails = async (numOfCocktails = 5) => {
   }
 
   return cocktailList;
+};
+
+export const searchCocktails = async (query, updateSearchResults) => {
+  try {
+    const response = await axios.get(`/api/search?s=${query}`);
+
+    if (response.status === 200) {
+      updateSearchResults(response.data);
+      return response.data;
+    } else {
+      console.log("No cocktails found for the search query.");
+      updateSearchResults([]);
+      return [];
+    }
+  } catch (error) {
+    console.error("Error fetching search cocktails:", error);
+    throw error;
+  }
 };

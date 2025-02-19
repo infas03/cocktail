@@ -4,10 +4,10 @@ const FavouritesContext = createContext();
 
 export const useFavourites = () => useContext(FavouritesContext);
 
-export const FavouritesProvider = ({ children }) => {
-  const [favourites, setFavourites] = useState([]);
-  const [searchResults, setSearchResults] = useState([]);
-  const [isSearch, setSearch] = useState(false)
+export const FavouritesProvider = ({ children, value }) => {
+  const [favourites, setFavourites] = useState(value?.favourites || []);
+  const [searchResults, setSearchResults] = useState(value?.searchResults || []);
+  const [isSearch, setSearch] = useState(value?.isSearch || false);
 
   const addToFavourites = (cocktail) => {
     setFavourites((prevFavourites) => [...prevFavourites, cocktail]);

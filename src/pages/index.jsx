@@ -43,7 +43,6 @@ export default function Home() {
 
   const handleFavourite = useCallback(
     (cocktail) => {
-      console.log("click: ", cocktail);
       if (favourites.some((fav) => fav.idDrink === cocktail.idDrink)) {
         removeFromFavourites(cocktail.idDrink);
       } else {
@@ -53,10 +52,6 @@ export default function Home() {
     [favourites, addToFavourites, removeFromFavourites]
   );
 
-  console.log("cocktails: ", cocktails);
-  console.log("searchResults: ", searchResults);
-  console.log("isSearch: ", isSearch);
-
   return (
     <div className={`flex flex-col`}>
       <div className="flex justify-between items-center my-5">
@@ -65,6 +60,7 @@ export default function Home() {
           className="bg-green-700 hover:bg-green-800 text-white px-3 py-1 font-semibold rounded-md disabled:bg-gray-600 w-32 h-10"
           onClick={handleRefresh}
           disabled={loading}
+          type="button"
         >
           {loading ? <Spinner /> : "Refresh"}
         </button>

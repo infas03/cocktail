@@ -15,8 +15,8 @@ const FavouriteMenu = ({ favourites, toggleMenu, handleDelete }) => {
             <div>No favourites added yet.</div>
           ) : (
             favourites.map((cocktail, index) => (
-              <div className="flex items-center justify-between hover:bg-gray-100 rounded-lg p-3">
-                <div key={index} className="flex items-center">
+              <div  key={index} className="flex items-center justify-between hover:bg-gray-100 rounded-lg p-3">
+                <div className="flex items-center">
                   <Image
                     src={cocktail.strDrinkThumb}
                     alt={cocktail.strDrink}

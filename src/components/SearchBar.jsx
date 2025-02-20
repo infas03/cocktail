@@ -16,7 +16,7 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <div className="relative w-96">
+    <div className="relative md:w-96">
       <input
         type="text"
         className="px-4 py-2 w-full rounded-md border border-gray-300"

@@ -113,6 +113,7 @@ describe("Home Component", () => {
     };
 
     const addToFavourites = jest.fn((cocktail) => {
+      console.log("addToFavourites called with", cocktail); // Debug log
       contextValues.favourites.push(cocktail); // Simulate adding cocktail to favourites
     });
   
@@ -141,9 +142,11 @@ describe("Home Component", () => {
   
     const favouriteButton = screen.getByTestId("favourite-button-1");
     expect(favouriteButton).toBeInTheDocument();
-  
+    expect(favouriteButton).toBeVisible();
+
     await act(async () => {
       fireEvent.click(favouriteButton);
+      console.log("Clicked button, waiting for state change");
     });
   });
   

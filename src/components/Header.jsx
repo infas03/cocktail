@@ -27,7 +27,7 @@ const Header = () => {
   };
   return (
     <header className="px-2 h-16 bg-yellow-500 w-full mx-auto max-w-[1200px] min-w-[320px] flex items-center justify-between">
-      <div className="text-white text-4xl font-bold">Cocktails</div>
+      <div className="text-white text-2xl md:text-4xl font-bold">Cocktails</div>
       <SearchBar onSearch={handleSearch}/>
       <div className="relative flex justify-end">
         <button onClick={toggleMenu} className="p-1 bg-red-500 rounded-lg flex flex-col">

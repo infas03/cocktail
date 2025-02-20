@@ -66,7 +66,7 @@ export default function Home() {
         </button>
       </div>
 
-      <div className="flex flex-wrap gap-10">
+      <div className="flex flex-wrap gap-8 justify-center">
         {loading ? (
           <SkeletonHome />
         ) : (isSearch ? searchResults : cocktails)?.length > 0 ? (

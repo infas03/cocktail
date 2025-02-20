@@ -1,40 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
 
-## Getting Started
+# Cocktile
 
-First, run the development server:
+The Cocktail App allows users to explore, search, and save their favorite cocktails. It fetches cocktail data from TheCocktailDB API, providing users with details like ingredients, categories, and drink images. Users can add cocktails to their favorites list and manage them easily.
+
+## Demo
+
+https://cocktail-infas.vercel.app/
+
+
+## Tech Stack
+
+- **React**: For building the user interface.
+- **Next.js**: For server-side rendering and routing.
+- **TailwindCSS**: For responsive and customizable styling.
+- **Axios**: For making HTTP requests to fetch cocktail data from TheCocktailDB API.
+- **Context API**: For managing global state (like favorites) across components.
+
+## Features
+
+- **View Cocktail List**: Display a list of random cocktails fetched from TheCocktailDB API.
+- **Search Cocktails**: Search for cocktails by name or category.
+- **Add to Favorites**: Users can add cocktails to their favorites.
+- **Remove from Favorites**: Users can remove cocktails from their favorites list.
+- **Responsive Design**: The app is fully responsive and adjusts seamlessly to various screen sizes.
+
+
+## Run Locally
+
+Clone the project
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  git clone https://github.com/infas03/cocktail.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Go to the project directory
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```bash
+  cd cocktail
+```
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Install dependencies
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+```bash
+  npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Start the server
 
-## Learn More
+```bash
+  npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
